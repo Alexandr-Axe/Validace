@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Validace", "Validace\Validace.csproj", "{BAA7BC41-AAD5-44E5-AFE9-3C68F2BC71CC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BAA7BC41-AAD5-44E5-AFE9-3C68F2BC71CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAA7BC41-AAD5-44E5-AFE9-3C68F2BC71CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAA7BC41-AAD5-44E5-AFE9-3C68F2BC71CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAA7BC41-AAD5-44E5-AFE9-3C68F2BC71CC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A17CE5FC-212F-409D-8AD9-1EB3BD6E1F38}
+	EndGlobalSection
+EndGlobal
