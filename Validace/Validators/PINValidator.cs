@@ -22,28 +22,19 @@ namespace Validace.Validators
         {
             if (!a.Contains("/")) return false;
             RozdelenyPIN = a.Split('/');
-            try
-            {
-                Convert.ToInt32(RozdelenyPIN[0]);
-                Convert.ToInt32(RozdelenyPIN[1]);
-                Convert.ToInt32(RozdelenyPIN[2]);
-                Convert.ToInt32(RozdelenyPIN[3]);
-                Convert.ToInt32(RozdelenyPIN[4]);
-                Convert.ToInt32(RozdelenyPIN[5]);
-            }
-            catch (Exception)
-            {
-                return false;
-            }
             if (RozdelenyPIN[0].Length != 6) return false;
-            else if (RozdelenyPIN[1].Length != 3 || RozdelenyPIN[1].Length != 4) return false;
+            else if (RozdelenyPIN[1].Length < 3) return false;
             char[] RokMesicDen = RozdelenyPIN[0].ToCharArray();
+            foreach (char Item in RokMesicDen)
+            {
+                if (!Char.IsDigit(Item)) return false;
+            }
             if (RokMesicDen[0] == 0) p = RokMesicDen[1].ToString();
             else p = $"{RokMesicDen[0]}{RokMesicDen[1]}";
-            i = Convert.ToInt32(p);
+            i = Int32.Parse(p);
             if (i > 54 && RozdelenyPIN[1].Length == 3) return false;
             else if (i < 54 && RozdelenyPIN[1].Length == 4) return false;
-            if (Convert.ToInt32(RozdelenyPIN[2]) != 0 || Convert.ToInt32(RozdelenyPIN[2]) != 1 || Convert.ToInt32(RozdelenyPIN[2]) != 5 || Convert.ToInt32(RozdelenyPIN[2]) != 6) return false;
+            if (RokMesicDen[2] != 0 || RokMesicDen[2] != 1 || RokMesicDen[2] != 5 || RokMesicDen[2] != 6) return false;
             if (i > 53 && RozdelenyPIN[1].Length == 4) return true;
             else if (i < 54 && RozdelenyPIN[1].Length == 3) return true;
             return false;

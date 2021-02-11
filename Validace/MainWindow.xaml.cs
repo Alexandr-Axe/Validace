@@ -95,13 +95,13 @@ namespace Validace
                         if (JmenoOK = ValidatorRodneCislo.IsOkay(TB.Text)) RodneCislo = TB.Text;
                     }
                     break;
-                /*case "LBAgeDate":
+                case "LBAgeDate":
                     L = C as Label;
                     if (L.Content.ToString().Length != 0)
                     {
                         if (JmenoOK = ValidatorDatum.IsOkay(Convert.ToDateTime(L))) DatumNarozeni = Convert.ToDateTime(L.Content);
                     }
-                    break;*/
+                    break;
             }
         }
         public override string ToString() => $"Jméno : {Jmeno}\nVěk : {Vek}\nDatum narození : {DatumNarozeni}\nRodné číslo : {RodneCislo}";
