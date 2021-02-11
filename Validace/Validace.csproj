@@ -66,7 +66,9 @@
     <Compile Include="Validators\NameValidator.cs" />
     <Compile Include="Validators\PINValidator.cs" />
     <Compile Include="ViewModel\InformationViewModel.cs" />
-    <Compile Include="Views\InformationViews.cs" />
+    <Compile Include="Views\ValidaceView.xaml.cs">
+      <DependentUpon>ValidaceView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -79,6 +81,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\ValidaceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

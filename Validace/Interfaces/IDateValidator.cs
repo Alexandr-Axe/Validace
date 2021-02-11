@@ -8,5 +8,6 @@ namespace Validace.Interfaces
 {
     interface IDateValidator
     {
+        bool IsOkay(DateTime dt);
     }
 }

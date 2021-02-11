@@ -8,5 +8,6 @@ namespace Validace.Interfaces
 {
     interface INameValidator
     {
+        bool IsOkay(string a);
     }
 }

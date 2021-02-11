@@ -8,5 +8,6 @@ namespace Validace.Interfaces
 {
     interface IPINValidator
     {
+        bool IsOkay(string a);
     }
 }

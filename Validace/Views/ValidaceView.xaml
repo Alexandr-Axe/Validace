@@ -1,0 +1,28 @@
+﻿<Window x:Class="Validace.Views.ValidaceView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Validace.Views"
+        mc:Ignorable="d"
+        Title="ValidaceView" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="TBValidateName" Grid.Row="0" Grid.Column="0" Text="Abych viděl" FontSize="30"/>
+        <TextBox x:Name="TBValidateAge" Grid.Row="1" Grid.Column="0" Text="Abych viděl" FontSize="30"/>
+        <TextBox x:Name="TBValidatePIN" Grid.Row="2" Grid.Column="0" Text="Abych viděl" FontSize="30"/>
+        <DatePicker x:Name="DPAgeDate" Grid.Column="1" Grid.Row="0" SelectedDateChanged="DPAgeDate_SelectedDateChanged"/>
+        <Label x:Name="LBAgeDate" Content="awdawds" Grid.Column="1" Grid.Row="2" FontSize="32" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Button x:Name="BTNValidateNow" Grid.Row="3" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" Content="Ověřit" FontSize="64" Click="BTNValidateNow_Click"/>
+    </Grid>
+</Window>

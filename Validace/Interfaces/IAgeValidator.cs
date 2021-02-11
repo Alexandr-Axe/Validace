@@ -8,5 +8,6 @@ namespace Validace.Interfaces
 {
     interface IAgeValidator
     {
+        bool IsOkay(string a, out int giveBack);
     }
 }
