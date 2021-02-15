@@ -71,6 +71,7 @@ namespace Validace
             bool VekOK;
             bool DatumOK;
             bool RCOK;
+            DateTime date;
             switch (C.Name)
             {
                 case "TBValidateName":
@@ -97,9 +98,13 @@ namespace Validace
                     break;
                 case "LBAgeDate":
                     L = C as Label;
+                    date = Convert.ToDateTime(L.Content.ToString());
                     if (L.Content.ToString().Length != 0)
                     {
-                        if (JmenoOK = ValidatorDatum.IsOkay(Convert.ToDateTime(L))) DatumNarozeni = Convert.ToDateTime(L.Content);
+                        if (JmenoOK = ValidatorDatum.IsOkay(date)) 
+                        {
+                            DatumNarozeni = date.Date; //NEFUNKČNÍ
+                        }
                     }
                     break;
             }
