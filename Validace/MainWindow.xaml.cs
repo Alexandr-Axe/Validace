@@ -26,6 +26,7 @@ namespace Validace
         public MainWindow()
         {
             InitializeComponent();
+
         }
 
         private void BTNValidate_Click(object sender, RoutedEventArgs e)

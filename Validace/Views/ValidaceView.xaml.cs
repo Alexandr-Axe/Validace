@@ -25,6 +25,12 @@ namespace Validace.Views
         {
             InitializeComponent();
             DPAgeDate.SelectedDate = DateTime.Today;
+            TBValidateName.GotKeyboardFocus += new KeyboardFocusChangedEventHandler(tb_GotKeyboardFocus);
+            TBValidateName.LostKeyboardFocus += new KeyboardFocusChangedEventHandler(tb_LostKeyboardFocus);
+            TBValidateAge.GotKeyboardFocus += new KeyboardFocusChangedEventHandler(tb_GotKeyboardFocus);
+            TBValidateAge.LostKeyboardFocus += new KeyboardFocusChangedEventHandler(tb_LostKeyboardFocus);
+            TBValidatePIN.GotKeyboardFocus += new KeyboardFocusChangedEventHandler(tb_GotKeyboardFocus);
+            TBValidatePIN.LostKeyboardFocus += new KeyboardFocusChangedEventHandler(tb_LostKeyboardFocus);
         }
         private void DPAgeDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -40,6 +46,32 @@ namespace Validace.Views
             Prvni.Input(LBAgeDate);
             //MessageBox.Show(Prvni.ToString(), "");
             Prvni.Verify();
+        }
+        private void tb_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            if (sender is TextBox)
+            {
+                if (((TextBox)sender).Foreground == Brushes.Gray)
+                {
+                    ((TextBox)sender).Text = "";
+                    ((TextBox)sender).Foreground = Brushes.White;
+                }
+            }
+        }
+        private void tb_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            string Fraze = string.Empty;
+            if (sender is TextBox)
+            {
+                if (((TextBox)sender).Text.Trim().Equals(""))
+                {
+                    ((TextBox)sender).Foreground = Brushes.Gray;
+                    if (((TextBox)sender).Name == "TBValidateName") Fraze = "Zadejte své jméno";
+                    else if (((TextBox)sender).Name == "TBValidateAge") Fraze = "Zadejte svůj věk";
+                    else if (((TextBox)sender).Name == "TBValidatePIN") Fraze = "Rodné číslo (xxxxxx/xxxx)";
+                    ((TextBox)sender).Text = Fraze;
+                }
+            }
         }
     }
 }
