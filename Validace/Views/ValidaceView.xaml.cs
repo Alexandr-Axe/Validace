@@ -44,7 +44,6 @@ namespace Validace.Views
             Prvni.Input(TBValidateAge);
             Prvni.Input(TBValidatePIN);
             Prvni.Input(LBAgeDate);
-            //MessageBox.Show(Prvni.ToString(), "");
             Prvni.Verify();
         }
         private void tb_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
@@ -54,7 +53,7 @@ namespace Validace.Views
                 if (((TextBox)sender).Foreground == Brushes.Gray)
                 {
                     ((TextBox)sender).Text = "";
-                    ((TextBox)sender).Foreground = Brushes.White;
+                    ((TextBox)sender).Foreground = Brushes.Black;
                 }
             }
         }

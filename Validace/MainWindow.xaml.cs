@@ -100,6 +100,7 @@ namespace Validace
                 if (RC[4] != '0') den = false;
             }
             MessageBox.Show($"{(den == false ? "Špatně vybraný den!\n" : "Správný den!\n")}{(mesic == false ? "Špatně vybraný měsíc!\n" : "Správný měsíc!\n")}{(rok == false ? "Špatně vybraný rok!\n" : "Správný rok!\n")}{(vek == false ? "Věk nesedí s datem narození!" : "Správný věk!")}", "");
+            if (den && mesic && rok && vek) MessageBox.Show(ToString(), "");
         }
         public void Input(Control C) 
         {
