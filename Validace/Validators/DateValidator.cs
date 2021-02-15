@@ -13,7 +13,7 @@ namespace Validace.Validators
         {
             if (dt == null) return false;
             else if (dt.Year == 2021) return false;
-            else return true;
+            return true;
         }
     }
 }

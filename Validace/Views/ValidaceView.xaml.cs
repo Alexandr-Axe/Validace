@@ -38,7 +38,8 @@ namespace Validace.Views
             Prvni.Input(TBValidateAge);
             Prvni.Input(TBValidatePIN);
             Prvni.Input(LBAgeDate);
-            MessageBox.Show(Prvni.ToString(), "");
+            //MessageBox.Show(Prvni.ToString(), "");
+            Prvni.Verify();
         }
     }
 }

@@ -63,6 +63,43 @@ namespace Validace
             ValidatorDatum = null;
             ValidatorRodneCislo = null;
         }
+        public void Verify() 
+        {
+            bool vek = true;
+            bool rok = true;
+            bool den = true;
+            bool mesic = true;
+            int i = Vek;
+            int x;
+            char[] RC = RodneCislo.ToCharArray();
+            DateTime DT = DatumNarozeni;
+            if (DT.Year == 1) 
+            {
+                rok = false;
+                DT = DT.AddYears(1000);
+            }
+            TimeSpan RealnyVek = DateTime.Now - DT;
+            x = RealnyVek.Days / 365;
+            if (i != x) vek = false;
+            if (RC[0] != DT.Year.ToString().ToCharArray()[2] || RC[1] != DT.Year.ToString().ToCharArray()[3]) rok = false;
+            if (DT.Month.ToString().Length == 2)
+            {
+                if (RC[2] != DT.Month.ToString().ToCharArray()[0] || RC[3] != DT.Month.ToString().ToCharArray()[1]) mesic = false;
+            }
+            else 
+            {
+                if (RC[2] != '0') mesic = false;
+            }
+            if (DT.Day.ToString().Length == 2)
+            {
+                if (RC[4] != DT.Day.ToString().ToCharArray()[0] || RC[5] != DT.Day.ToString().ToCharArray()[1]) den = false;
+            }
+            else
+            {
+                if (RC[4] != '0') den = false;
+            }
+            MessageBox.Show($"{(den == false ? "Špatně vybraný den!\n" : "Správný den!\n")}{(mesic == false ? "Špatně vybraný měsíc!\n" : "Správný měsíc!\n")}{(rok == false ? "Špatně vybraný rok!\n" : "Správný rok!\n")}{(vek == false ? "Věk nesedí s datem narození!" : "Správný věk!")}", "");
+        }
         public void Input(Control C) 
         {
             TextBox TB;
@@ -101,14 +138,11 @@ namespace Validace
                     date = Convert.ToDateTime(L.Content.ToString());
                     if (L.Content.ToString().Length != 0)
                     {
-                        if (JmenoOK = ValidatorDatum.IsOkay(date)) 
-                        {
-                            DatumNarozeni = date.Date; //NEFUNKČNÍ
-                        }
+                        if (JmenoOK = ValidatorDatum.IsOkay(date)) DatumNarozeni = date;
                     }
                     break;
             }
         }
-        public override string ToString() => $"Jméno : {Jmeno}\nVěk : {Vek}\nDatum narození : {DatumNarozeni}\nRodné číslo : {RodneCislo}";
+        public override string ToString() => $"Jméno : {Jmeno}\nVěk : {Vek}\nDatum narození : {DatumNarozeni.ToString("dd/MM/yyyy")}\nRodné číslo : {RodneCislo}";
     }
 }
